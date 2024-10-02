@@ -8,7 +8,7 @@
     ],
     "routes": [
         {
-            "src": "/static/(.*)",
+            "src": "flask_blog/static/(.*)",
             "dest": "static/$1"
         },
         {
