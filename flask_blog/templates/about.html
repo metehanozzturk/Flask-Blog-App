@@ -1,4 +1,67 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>About Page</h1>
+    <h1>About This Application</h1>
+    <h2>Features</h2>
+    <ul>
+        <li>
+            <strong>User Authentication:</strong>
+            <p>
+                The application uses <strong>Flask-Login</strong> to handle user authentication. Users can register with their email and a password, which is securely hashed using <strong>Flask-Bcrypt</strong> to ensure their credentials are stored safely. After registering, users can log in, which creates a session, allowing them to access protected areas of the application. If they try to access a restricted page without being logged in, they are redirected to the login page.
+            </p>
+        </li>
+        <li>
+            <strong>Session Management:</strong>
+            <p>
+                Leveraging Flask-Login's session management, the app tracks user sessions throughout their interaction with the website. The <code>login_user()</code> and <code>logout_user()</code> functions manage user sessions, while <code>current_user</code> provides access to the logged-in user’s details across different views.
+            </p>
+        </li>
+        <li>
+            <strong>Form Validation:</strong>
+            <p>
+                All forms within the app are created using <strong>Flask-WTF</strong>, which extends WTForms. This feature ensures that user inputs are validated according to specific criteria (e.g., required fields, valid email formats) before any data is processed. This helps maintain data integrity and provides immediate feedback to users.
+            </p>
+        </li>
+        <li>
+            <strong>Email Validation:</strong>
+            <p>
+                To ensure the validity of user email addresses, the app utilizes the <code>email_validator</code> library. This library checks the format of email addresses during registration and login, preventing common user input errors and enhancing the user experience.
+            </p>
+        </li>
+        <li>
+            <strong>Error Handling:</strong>
+            <p>
+                Custom error messages are implemented to guide users through the login and registration processes. If a login attempt fails (due to incorrect credentials), a clear message is displayed, instructing the user on how to correct their mistake. Validation errors on forms also provide feedback, ensuring users understand what went wrong.
+            </p>
+        </li>
+        <li>
+            <strong>Database Management:</strong>
+            <p>
+                The application utilizes <strong>SQLAlchemy</strong> as the ORM (Object Relational Mapper). This allows for smooth interaction with the database, defining models for <code>User</code> and <code>Post</code> entities. It supports creating, retrieving, updating, and deleting records, encapsulating complex SQL operations within easy-to-use Python methods.
+            </p>
+        </li>
+        <li>
+            <strong>Email Integration:</strong>
+            <p>
+                <strong>Flask-Mail</strong> is integrated into the application to handle email communications. Users receive confirmation emails upon registration and have the option to request password resets, ensuring that they can recover their accounts securely.
+            </p>
+        </li>
+        <li>
+            <strong>Password Reset Requests:</strong>
+            <p>
+                Users can request a password reset if they forget their credentials. The application generates a secure token and sends an email with a link to reset the password. This process enhances security by ensuring that only the user can change their password.
+            </p>
+        </li>
+        <li>
+            <strong>Image Uploads:</strong>
+            <p>
+                The app allows users to upload profile pictures. It utilizes <strong>Pillow</strong> for image processing and validation, ensuring that uploaded images are of the correct format and size. Users can update their profiles with personalized images, enhancing their interaction with the platform.
+            </p>
+        </li>
+        <li>
+            <strong>Post Management:</strong>
+            <p>
+                Users can create, edit, and delete blog posts through a user-friendly interface. The CRUD (Create, Read, Update, Delete) functionality enables dynamic content management, allowing users to express their thoughts and ideas effectively. Each post is linked to its author, making it easy to navigate through individual users' contributions.
+            </p>
+        </li>
+    </ul>
 {% endblock content %}
